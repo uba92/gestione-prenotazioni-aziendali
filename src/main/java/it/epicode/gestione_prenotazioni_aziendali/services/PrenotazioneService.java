@@ -51,7 +51,6 @@ public class PrenotazioneService {
             prenotazione1.setPostazione(postazioneRepository.findById(postazione_id).get());
             prenotazione1.setUtente(utente);
             prenotazione1.setDataInizio(dataInizio);
-
             return prenotazioneRepository.save(prenotazione1);
         }
     }
