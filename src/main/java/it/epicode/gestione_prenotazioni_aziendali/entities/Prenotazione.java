@@ -26,5 +26,5 @@ public class Prenotazione {
     @JoinColumn(name = "utente_id")
     private Utente utente;
     private LocalDate dataInizio;
-    private LocalDate dataFine = dataInizio.plusYears(1);
+//    private LocalDate dataFine = dataInizio.plusDays(1);
 }

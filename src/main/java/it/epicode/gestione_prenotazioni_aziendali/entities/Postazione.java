@@ -1,6 +1,7 @@
 package it.epicode.gestione_prenotazioni_aziendali.entities;
 
 import it.epicode.gestione_prenotazioni_aziendali.enums.StatoPostazione;
+import it.epicode.gestione_prenotazioni_aziendali.enums.TipoPostazione;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,11 +19,15 @@ public class Postazione {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String descrizione;
+    @Enumerated(EnumType.STRING)
     private StatoPostazione statoPostazione;
+    @Enumerated(EnumType.STRING)
+    private TipoPostazione tipoPostazione;
     private int maxNumPosti;
+
     @ManyToOne
-    @JoinColumn(name = "edificio_id")
     private Edificio edificio;
+
     @OneToMany(mappedBy = "postazione")
     private List<Prenotazione> listaPrenotazioni;
 
